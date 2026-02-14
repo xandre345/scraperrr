@@ -11,6 +11,7 @@ env/
 # Data & Temp
 .tmp/
 *.json
+!vercel.json
 !app/frontend/assets/*.json
 
 # IDEs

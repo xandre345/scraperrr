@@ -19,8 +19,13 @@ app.add_middleware(
 )
 
 # Get absolute path to frontend directory
-# Assumes structure: app/backend/main.py -> app/frontend
-frontend_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'frontend'))
+# Works in both local dev and Vercel's serverless environment
+_this_dir = os.path.dirname(os.path.abspath(__file__))
+frontend_path = os.path.join(_this_dir, '..', 'frontend')
+if not os.path.isdir(frontend_path):
+    # Fallback: resolve relative to the project root (Vercel layout)
+    frontend_path = os.path.join(os.getcwd(), 'app', 'frontend')
+frontend_path = os.path.abspath(frontend_path)
 
 # Mount static files (css, js, assets)
 app.mount("/css", StaticFiles(directory=os.path.join(frontend_path, "css")), name="css")
