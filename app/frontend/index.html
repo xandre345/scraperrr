@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <img src="assets/logo.svg" alt="Glaido Logo">
+            <!-- Fallback text if logo fails -->
+            <span style="margin-left: 10px; font-weight: 600; font-size: 18px;">GLAIDO</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#" class="active"><span style="margin-right: 10px">📰</span> Dashboard</a></li>
+            <li><a href="#"><span style="margin-right: 10px">🔖</span> Saved Items</a></li>
+            <li><a href="#"><span style="margin-right: 10px">⚙️</span> Settings</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header>
+            <div style="display: flex; align-items: center;">
+                <button id="mobile-toggle" class="mobile-toggle">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div>
+                    <h1>Latest AI News</h1>
+                    <div id="last-updated" class="last-updated">Last updated: --:--</div>
+                </div>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All Sources</button>
+                <button class="filter-btn" data-filter="rundown">The AI Rundown</button>
+                <button class="filter-btn" data-filter="reddit">Reddit</button>
+                <button class="filter-btn" data-filter="bens">Ben's Bites</button>
+            </div>
+        </header>
+
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading your AI news feed...</p>
+        </div>
+
+        <div id="articles-grid" class="articles-grid">
+            <!-- Articles will be injected here -->
+        </div>
+    </main>
+
+    <script src="js/app.js?v=2"></script>
+</body>
+
+</html>
