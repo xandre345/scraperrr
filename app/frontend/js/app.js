@@ -29,7 +29,13 @@ async function fetchArticles() {
         articlesContainer.innerHTML = '';
         console.log('Fetching articles...');
 
-        const response = await fetch('http://127.0.0.1:8000/api/articles');
+        // Try Modal endpoint first (24h cached data), fall back to local API
+        let response;
+        try {
+            response = await fetch('https://xandre345--ai-news-scraper-get-articles.modal.run');
+        } catch {
+            response = await fetch('/api/articles');
+        }
         const data = await response.json();
 
         if (data.articles) {
